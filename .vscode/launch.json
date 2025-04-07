@@ -1,0 +1,56 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch AppHost",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Thunders.TechTest.AppHost/bin/Debug/net8.0/Thunders.TechTest.AppHost.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Thunders.TechTest.AppHost",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Launch ApiService",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Thunders.TechTest.ApiService/bin/Debug/net8.0/Thunders.TechTest.ApiService.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Thunders.TechTest.ApiService",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Launch Tests",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "dotnet",
+            "args": [
+                "test",
+                "--no-build",
+                "--filter",
+                "${input:testFilter}"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ],
+    "inputs": [
+        {
+            "id": "testFilter",
+            "type": "promptString",
+            "description": "Test filter (e.g. FullyQualifiedName~RelatorioTests)"
+        }
+    ]
+} 
